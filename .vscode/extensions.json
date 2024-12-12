@@ -1,0 +1,25 @@
+{
+  "recommendations": [
+    "russell.any-rule",
+    "ms-ceintl.vscode-language-pack-zh-hans",
+    "streetsidesoftware.code-spell-checker",
+    "vunguyentuan.vscode-css-variables",
+    "mikestead.dotenv",
+    "editorconfig.editorconfig",
+    "dbaeumer.vscode-eslint",
+    "antfu.iconify",
+    "xabikos.javascriptsnippets",
+    "ritwickdey.liveserver",
+    "pkief.material-icon-theme",
+    "zhuangtongfa.material-theme",
+    "dominicvonk.parameter-hints",
+    "yoavbls.pretty-ts-errors",
+    "rust-lang.rust-analyzer",
+    "tauri-apps.tauri-vscode",
+    "gruntfuggly.todo-tree",
+    "chakrounanas.turbo-console-log",
+    "antfu.unocss",
+    "pflannery.vscode-versionlens",
+    "ms-vscode-remote.remote-wsl"
+  ]
+}
