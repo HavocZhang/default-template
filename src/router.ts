@@ -9,10 +9,23 @@ import UserEmailsSubscriptions from "./views/UserEmailsSubscriptions.vue";
 import UserProfile from "./views/UserProfile.vue";
 import UserProfilePreview from "./views/UserProfilePreview.vue";
 import {useUserStore} from "./store/user.ts";
+import BaseLayout from "./components/BaseLayout.vue";
 
 const routes = [
-    {path: '/', component: HomeView, meta: {isAdmin: true, requiresAuth: true, name: 'HomeView', fix: 123, bug: "123"}},
-    {path: '/about', component: AboutView},
+    {
+        path: '/', component: BaseLayout, children: [
+            {
+                path: 'home',
+                component: HomeView,
+                meta: {isAdmin: true, requiresAuth: true, name: 'HomeView', fix: 123, bug: "123"}
+            },
+            {
+                path: 'about',
+                component: AboutView
+            },
+        ]
+    },
+
     {
         path: '/settings',
         // 你也可以在顶级路由就配置命名视图
