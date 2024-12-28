@@ -1,10 +1,11 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 const year = new Date().getFullYear().toString()
 const company = import.meta.env.VITE_APP_COMPANY
 const gwb = import.meta.env.VITE_APP_GWB
 const gwbCode = import.meta.env.VITE_APP_GWB_CODE
 const icp = import.meta.env.VITE_APP_ICP
 </script>
+
 <template>
   <div class="footer">
     <p class="white">Copyright &copy; {{ year }} {{ company }}</p>
@@ -18,6 +19,7 @@ const icp = import.meta.env.VITE_APP_ICP
     </div>
   </div>
 </template>
+
 <style scoped>
 .footer {
   display: flex;
