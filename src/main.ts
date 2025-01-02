@@ -1,14 +1,16 @@
-import {createApp} from 'vue'
-import 'ant-design-vue/dist/reset.css';
-import App from './App.vue'
-import {router} from "./router";
-import {createPinia} from "pinia";
-import './styles/transition.css'
-import './styles/reset.css'
-import 'virtual:uno.css'
+import { createApp } from "vue";
+import { createPinia } from "pinia";
+import { router } from "./router";
+import App from "./App.vue";
 
-const pinia = createPinia()
+// 样式导入
+import "ant-design-vue/dist/reset.css";
+import "./styles/transition.css";
+import "./styles/reset.css";
+import "virtual:uno.css";
+
+// 创建应用实例
 const app = createApp(App);
-app.use(pinia);
-app.use(router)
-app.mount('#app')
+
+// 注册插件
+app.use(createPinia()).use(router).mount("#app");

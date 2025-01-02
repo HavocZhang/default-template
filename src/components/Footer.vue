@@ -1,23 +1,40 @@
 <script lang="ts" setup>
-const year = new Date().getFullYear().toString()
-const company = import.meta.env.VITE_APP_COMPANY
-const gwb = import.meta.env.VITE_APP_GWB
-const gwbCode = import.meta.env.VITE_APP_GWB_CODE
-const icp = import.meta.env.VITE_APP_ICP
+// 使用计算属性获取当前年份
+import { computed } from "vue";
+
+const year = computed(() => new Date().getFullYear().toString());
+
+// 从环境变量中获取配置信息
+const {
+  VITE_APP_COMPANY: company,
+  VITE_APP_GWB: gwb,
+  VITE_APP_GWB_CODE: gwbCode,
+  VITE_APP_ICP: icp,
+} = import.meta.env;
 </script>
 
 <template>
-  <div class="footer">
-    <p class="white">Copyright &copy; {{ year }} {{ company }}</p>
-    <div class="white">
-      <div style="width: 16px;">
-        <img alt="" class="image_inner" src="/images/galogo.png" style="width: 100%;height: 100%;"/>
+  <footer class="footer">
+    <p class="text">Copyright &copy; {{ year }} {{ company }}</p>
+    <div class="text">
+      <div class="logo-wrapper">
+        <img alt="公安备案图标" class="logo" src="/images/galogo.png" />
       </div>
-      <a :href="`https://beian.mps.gov.cn/#/query/webSearch?code=${gwbCode}`" rel="noreferrer"
-         target="_blank">{{ gwb }}</a>
-      <a href="https://beian.miit.gov.cn/#/Integrated/index" style="margin-left: 20px;" target="_blank">{{ icp }}</a>
+      <a
+        :href="`https://beian.mps.gov.cn/#/query/webSearch?code=${gwbCode}`"
+        class="link"
+        rel="noreferrer"
+        target="_blank"
+        >{{ gwb }}</a
+      >
+      <a
+        class="link"
+        href="https://beian.miit.gov.cn/#/Integrated/index"
+        target="_blank"
+        >{{ icp }}</a
+      >
     </div>
-  </div>
+  </footer>
 </template>
 
 <style scoped>
@@ -25,21 +42,43 @@ const icp = import.meta.env.VITE_APP_ICP
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 16px;
 }
 
-.white {
+.text {
   font-family: MicrosoftYaHei, sans-serif;
   font-size: 12px;
-  letter-spacing: 0;
-  font-weight: 400;
-  line-height: 19px;
+  line-height: 1.5;
   display: flex;
   align-items: center;
   margin: 5px 0;
+  color: #666;
 }
 
-.image_inner {
-  vertical-align: top;
-  opacity: 1;
+.logo-wrapper {
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
+}
+
+.logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.link {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s;
+  margin-left: 20px;
+}
+
+.link:first-of-type {
+  margin-left: 0;
+}
+
+.link:hover {
+  color: #1890ff;
 }
 </style>
