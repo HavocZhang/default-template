@@ -80,6 +80,18 @@ const routes: RouteRecordRaw[] = [
       title: "登录",
     },
   },
+  // ... 其他路由配置 ...
+  {
+    path: "/redirect/:path(.*)",
+    component: BaseLayout,
+    meta: { hidden: true },
+    beforeEnter: (to, from, next) => {
+      const {
+        params: { path },
+      } = to;
+      next("/" + path);
+    },
+  },
   {
     path: "/:pathMatch(.*)*",
     name: "NotFound",
@@ -109,4 +121,7 @@ router.beforeEach(async (to) => {
       query: { redirect: to.fullPath },
     };
   }
+
+  // 添加返回 true 允许导航继续
+  return true;
 });
