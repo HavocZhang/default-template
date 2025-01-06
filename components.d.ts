@@ -28,6 +28,7 @@ declare module 'vue' {
     ATabPane: typeof import('ant-design-vue/es')['TabPane']
     ATabs: typeof import('ant-design-vue/es')['Tabs']
     BaseLayout: typeof import('./src/components/BaseLayout.vue')['default']
+    Copyright: typeof import('./src/components/Copyright.vue')['default']
     Footer: typeof import('./src/components/Footer.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     NotFound: typeof import('./src/components/NotFound.vue')['default']

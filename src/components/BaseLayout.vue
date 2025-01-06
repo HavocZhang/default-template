@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { useUserStore } from "../store/user";
-import Footer from "./Footer.vue";
+import Footer from "./Copyright.vue";
 import { computed, ref, watch } from "vue";
 import { useRouter, useRoute } from "vue-router";
 

@@ -1,44 +1,39 @@
 <script lang="ts" setup>
 // 使用计算属性获取当前年份
 import { computed } from "vue";
-
+import useSettingsStore from "@/store/settings";
 const year = computed(() => new Date().getFullYear().toString());
-
-// 从环境变量中获取配置信息
-const {
-  VITE_APP_COMPANY: company,
-  VITE_APP_GWB: gwb,
-  VITE_APP_GWB_CODE: gwbCode,
-  VITE_APP_ICP: icp,
-} = import.meta.env;
+const settingsStore = useSettingsStore();
 </script>
 
 <template>
-  <footer class="footer">
-    <p class="text">Copyright &copy; {{ year }} {{ company }}</p>
+  <footer v-if="settingsStore.settings.copyright.enable" class="copyright">
+    <p class="text">
+      Copyright &copy; {{ year }} {{ settingsStore.settings.copyright.company }}
+    </p>
     <div class="text">
       <div class="logo-wrapper">
         <img alt="公安备案图标" class="logo" src="/images/galogo.png" />
       </div>
       <a
-        :href="`https://beian.mps.gov.cn/#/query/webSearch?code=${gwbCode}`"
+        :href="`https://beian.mps.gov.cn/#/query/webSearch?code=${settingsStore.settings.copyright.gwbCode}`"
         class="link"
         rel="noreferrer"
         target="_blank"
-        >{{ gwb }}</a
+        >{{ settingsStore.settings.copyright.gwb }}</a
       >
       <a
         class="link"
         href="https://beian.miit.gov.cn/#/Integrated/index"
         target="_blank"
-        >{{ icp }}</a
+        >{{ settingsStore.settings.copyright.icp }}</a
       >
     </div>
   </footer>
 </template>
 
 <style scoped>
-.footer {
+.copyright {
   display: flex;
   flex-direction: column;
   align-items: center;

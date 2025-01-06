@@ -2,7 +2,7 @@
 import { ref } from "vue";
 import { useUserStore } from "../store/user.ts";
 import { useRouter } from "vue-router";
-import Footer from "../components/Footer.vue";
+import Footer from "../components/Copyright.vue";
 
 const userStore = useUserStore();
 const router = useRouter();
